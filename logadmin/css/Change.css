@@ -1,0 +1,71 @@
+.header 
+{
+    display: flex;
+    justify-content: space-between;
+    height: 44px;
+    background-color:#ffff;
+    padding: 8px 20px;
+    position: sticky;
+    top: 0;
+}
+
+a.back
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: darkslateblue;
+    margin-top: auto;
+}
+
+form {
+    flex: 1;
+    background-color: #f1f1f1;
+    margin: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    padding: 40px;
+    margin: auto;
+}
+
+html{
+    background-color: purple;
+}
+
+button.Change
+{
+    background-color: red;
+    color: white;
+    margin: 8px 8px;
+    border: none;
+    cursor: pointer;
+    padding: 8px 8px 8px 8px;
+}
+
+input.photo
+{
+    margin-top: 10px;
+}
+
+input.login
+{
+    margin-top: 10px;
+}
+
+input.name
+{
+    margin-top: 10px;
+}

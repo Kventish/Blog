@@ -1,0 +1,126 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.header 
+{
+    display: flex;
+    height: 44px;
+    background-color:#ffff;
+    margin: 0 auto;
+    justify-content: end;
+    padding: 8px 20px;
+    position: sticky;
+    top: 0;
+}
+
+.container
+{
+    background-color:lightslategray;
+    min-height: calc(100vh - 44px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+
+
+.ram1
+{
+    background-color: #ffff;
+    padding: 5px 20px 5px 20px;
+    display: grid;
+    width: 520px;
+    margin: 0 auto;
+    margin-bottom: 50px ;
+}
+
+.ram2
+{
+    background-color: #ffff;
+    padding: 5px 20px 5px 20px;
+    display: grid;
+    width: 520px;
+    margin: 0 auto;
+    margin-bottom: 50px ;
+}
+
+.ram3
+{
+    background-color: #ffff;
+    padding: 5px 20px 5px 20px;
+    display: grid;
+    width: 520px;
+    margin: 0 auto;
+}
+
+.post1
+{
+    display: grid;
+}
+
+.post2
+{
+    display: grid;
+}
+
+.post3
+{
+    display: grid;
+}
+
+.container p
+{
+    margin-top: 20px;
+}
+
+.fa
+{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    margin-top: 30px;
+    transition: opacity 0.5s;
+}
+
+.fa:hover
+{
+    opacity: 0.5;
+}
+
+.robo
+{
+    margin-top: 10px;
+}
+
+.post1 p
+{
+    margin-top: 10px;
+}
+
+.post p
+{
+    margin: 30px;
+}
+
+.ka
+{
+    background-color: #ffffff00;
+    border: 1px solid #75aeca;
+    border-radius: 3px;
+    color: #548eaa;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .8125rem;
+    height: 36px;
+    line-height: 2.25rem;
+    margin-top: 18px;
+    padding: 0 13px;
+    text-decoration: none;
+    width: 90px;
+    height: 40px;
+}
