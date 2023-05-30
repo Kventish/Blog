@@ -1,3 +1,12 @@
+<?php 
+$connection = mysqli_connect("localhost", "root", "root", "blog");
+if( $connection == false)
+{
+    echo'Не удалось подключиться к бд!<br>';
+    echo mysqli_connect_error();
+}
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +18,18 @@
 </head>
 <form action="create.php" method="POST">
 <div class="header">
+<div class="main_page">
+<a href="config.php" class="main_page_a">Главная страница</a>
+</div>
         <div class="login">
-            <a href="index.html" ><img src="img/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" width="30px" height="30px"></a>
+        <?php 
+                $userid = $_SESSION['id'];
+                 $sql = "SELECT * FROM `admin` WHERE `id`=$userid";
+                 $result2 = mysqli_query($connection,$sql);
+                 $user = mysqli_fetch_assoc($result2);
+                ?>
+
+                <a href="logadmin.php" ><span class="profile"><?php echo $user['name']?></span><img class="def_img" src="img/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" width="30px" height="30px"></a>
         </div>
     </div>
 <div class="container">
@@ -22,10 +41,10 @@
             <input type="text" name="Ssilka" placeholder="Вставте ссылку на картинку"  class="lolo">
             <?php
             
-            $Name = $_POST['Name'];
-            $Kratko = $_POST['Kratko'];
-            $Vvod = $_POST['Vvod'];
-            $Ssilka = $_POST['Ssilka'];
+            $Name = $_POST['Name'] ?? "";
+            $Kratko = $_POST['Kratko'] ?? "";
+            $Vvod = $_POST['Vvod'] ?? "";
+            $Ssilka = $_POST['Ssilka'] ?? "";
             $r_date = time();
             $r_date = date('Y-m-d H:i:s');
             // die(var_dump($r_date));

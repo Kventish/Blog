@@ -9,6 +9,24 @@
     top: 0;
 }
 
+.main_page{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.main_page_a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.main_page_a:hover{
+    opacity: 0.5;
+}
+
 a.back
 {
     font-family: 'Montserrat';
@@ -50,13 +68,13 @@ html{
     background-color: purple;
 }
 
-button.logout
+.logout
 {
     background-color: #4CAF50;
-    color: white;
-    margin: 8px 0;
+    color: black;
+    padding: 8px 8px 8px 8px;
     border: none;
-    cursor: pointer;
+    text-decoration: none;
 }
 
 button.Change

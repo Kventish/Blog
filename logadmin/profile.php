@@ -19,15 +19,11 @@ session_start();
 </head>
 <body>
     <div class="header">
-        <a href="config.php" class="back">Mane Page</a>
-        <?php
-        if(isset($_POST['logout']))
-        {
-            $new_url = 'http://logadmin/logout.php';
-            header('Location: '.$new_url);
-        }
-        ?>
-        <button type="submit" name="logout" class="logout">Log out</button>
+    <div class="main_page">
+<a href="config.php" class="main_page_a">Главная страница</a>
+</div>
+        
+        <a href="logout.php"  class="logout">Log out</a>
 
     </div>
     <form action="profile.php">
@@ -40,13 +36,13 @@ session_start();
                 ?>
             <div class="Photo">
             <h3>Your Photo:</h3>
-                <img src="<?php echo $user['Photo']?>" alt="">
+            <img src="<?php echo $user['Photo']; ?>" alt="" width="300px" height="300px" class="robo" name="img">
             </div>
             <div class="Info">
                 <p class="uname">Name: <?php echo $user['name'] ?></p>
                 <p class="login">Login: <?php echo $user['login'] ?></p>
                 <?php
-                    if(isset($_POST['Change']))
+                    if(isset($_GET['Change']))
                     {
                         $new_url = 'http://logadmin/change.php';
                         header('Location: '.$new_url);

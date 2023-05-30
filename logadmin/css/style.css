@@ -10,10 +10,57 @@
     height: 44px;
     background-color:#ffff;
     margin: 0 auto;
-    justify-content: end;
+    justify-content: space-between;
     padding: 8px 20px;
     position: sticky;
     top: 0;
+}
+
+.main_page{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.main_page_a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.create_publication{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+}
+
+.search{
+    margin-top: 10px;
+}
+
+.create_publication:hover{
+    opacity: 0.5;
+}
+
+.profile{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.def_img{
+    text-decoration: none;
+}
+
+.main_page_a:hover{
+    opacity: 0.5;
 }
 
 .container

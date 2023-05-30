@@ -19,9 +19,9 @@ session_start();
 </head>
 <body>
 <div class="header">
-        <a href="" class="back">Mane Page</a>
+        <a href="/config.php" class="back">Mane Page</a>
     </div>
-    <form action="change.php">
+    <form action="change.php" method="post">
         <div class="container">
             
         <?php 
@@ -31,27 +31,29 @@ session_start();
                  $user = mysqli_fetch_assoc($result3);
                 ?>
             <h3>Your Photo:</h3>
-                <img src="<?php echo $user['Photo']?>" alt="">
+                <img src="<?php echo $user['Photo']; ?>" alt="" width="300px" height="300px" class="robo" name="img">
                 <input type="text" placeholder="Вставьте ссылку на фотографию" name="photo" class="photo">
                 <input type="text" placeholder="Name: <?php echo $user['name'] ?>" name="name" class="name">
                 <input type="text" placeholder="Login: <?php echo $user['login']?>" name="login" class="login">
                 <?php
-                $photo = $_POST['photo'] ?? "";
-                $name = $_POST['name'] ?? "";
-                $login = $_POST['login'] ?? "";
                     if(isset($_POST['Change']))
                     {
-                        
-                        var_dump(die);
-                        // if(empty($_POST['photo']) && empty($_POST['name']) && empty($_POST['login']))
-                        // {
-                        //     echo 'Заполните все поля ввода';
-                        // }
-                        // else
-                        // {
-                        //     print 'Ураура';
-                        // }
+                        $photo = $_POST['photo'] ?? "";
+                        $name = $_POST['name'] ?? "";
+                        $login = $_POST['login'] ?? "";
+                        $connection = mysqli_connect("localhost", "root", "root", "blog");
+                        if( $connection == false)
+                        {
+                            echo'Не удалось подключиться к бд!<br>';
+                            echo mysqli_connect_error();
+                        }
+
+                        $sql1 = mysqli_query($connection,"UPDATE `admin` SET Photo = '$photo', name = '$name',login = '$login' WHERE id = '$userid'");
+                            
+                        $new_url = 'http://logadmin/profile.php';
+                        header('Location: '.$new_url);
                     }
+                    
                 ?>
                 <button type="submit" name="Change" class="Change">Change sourse</button>
             </div>

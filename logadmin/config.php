@@ -23,6 +23,16 @@ session_start();
     </head>
     <form action="" method="post">
         <div class="header">
+            <div class="main_page">
+                <a href="config.php" class="main_page_a">Главная страница</a>
+                <a href="create.php" class="create_publication">Создать публикацию</a>
+            </div>
+            <div class="search">
+                <form name="search" method="post" action="search.php">
+                    <input type="search" name="query" placeholder="Поиск">
+                    <button type="submit">Поиск статьи</button> 
+                </form>
+            </div>
             <div class="login">
                 <?php 
                 $userid = $_SESSION['id'];
@@ -30,14 +40,14 @@ session_start();
                  $result2 = mysqli_query($connection,$sql);
                  $user = mysqli_fetch_assoc($result2);
                 ?>
-                
-                <a href="logadmin.php" ><span class="profile"><?php echo $user['name']?></span><img src="img/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" width="30px" height="30px"></a>
+
+                <a href="logadmin.php" ><span class="profile"><?php echo $user['name']?></span><img class="def_img" src="img/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" width="30px" height="30px"></a>
             </div>
         </div>
     <div class="container">
         <?php
-                            while($post=mysqli_fetch_assoc($result)){
-                    ?>
+            while($post=mysqli_fetch_assoc($result)){
+        ?>
         <div class="blog1">
             <div class="ram1">
                 <div class="post1">

@@ -12,6 +12,7 @@ if(mysqli_num_rows($result)<1){
     exit;
 
 }
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +25,18 @@ if(mysqli_num_rows($result)<1){
     <title>Full Form</title>
     <form action="post.php">
     <div class="header">
+    <div class="main_page">
+<a href="config.php" class="main_page_a">Главная страница</a>
+</div>
         <div class="login">
-            <a href="index.html" ><img src="img/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" width="30px" height="30px"></a>
+        <?php 
+                $userid = $_SESSION['id'];
+                 $sql = "SELECT * FROM `admin` WHERE `id`=$userid";
+                 $result2 = mysqli_query($connection,$sql);
+                 $user = mysqli_fetch_assoc($result2);
+                ?>
+
+                <a href="logadmin.php" ><span class="profile"><?php echo $user['name']?></span><img class="def_img" src="img/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" width="30px" height="30px"></a>
         </div>
     </div>
     <div class="container">

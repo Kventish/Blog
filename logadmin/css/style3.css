@@ -1,8 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: consolas;
-    box-sizing: border-box;
 }
 
 .header 
@@ -11,8 +9,36 @@
     height: 44px;
     background-color:#ffff;
     margin: 0 auto;
-    justify-content: end;
+    justify-content: space-between;
     padding: 8px 20px;
+    position: sticky;
+    top: 0;
+}
+
+.main_page{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.main_page_a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.main_page_a:hover{
+    opacity: 0.5;
+}
+
+.profile{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -28,7 +54,7 @@
 .ram1
 {
     background-color: #ffff;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 0px 20px 10px;
     display: grid;
     width: 100%;
 }
@@ -41,6 +67,6 @@
 
 .ram1 p
 {
-    font-family: 'Times New Roman';
+    font-family: 'Montserrat';
     font-style: normal;
 }
