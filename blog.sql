@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 30 2023 г., 09:48
+-- Время создания: Июн 05 2023 г., 15:35
 -- Версия сервера: 5.7.38
 -- Версия PHP: 7.1.33
 
@@ -47,6 +47,19 @@ INSERT INTO `admin` (`login`, `password`, `Photo`, `name`, `id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `page_id` int(11) NOT NULL,
+  `name_id` int(11) NOT NULL,
+  `text_comment` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `publicated`
 --
 
@@ -77,7 +90,16 @@ INSERT INTO `publicated` (`id`, `Header`, `short_information`, `Photo`, `Full_in
 -- Индексы таблицы `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `page_id` (`page_id`),
+  ADD KEY `name_id` (`name_id`);
 
 --
 -- Индексы таблицы `publicated`
@@ -100,6 +122,17 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `publicated`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `publicated` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`name_id`) REFERENCES `admin` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
