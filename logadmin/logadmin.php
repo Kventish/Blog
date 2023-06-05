@@ -54,7 +54,7 @@ if(isset($_SESSION['id'])){
 
             if(password_verify($password,$hash)){
                 $_SESSION['id']=$row['id'];
-                $new_url = 'http://logadmin/config.php';
+                $new_url = 'config.php';
                 header('Location: '.$new_url);
                 exit();
             }
@@ -75,7 +75,7 @@ if(isset($_SESSION['id'])){
     <button type="submit" name="register" >Register</button>
     <?php
         if(isset($_POST['register'])){
-            $new_url = 'http://logadmin/register.php';
+            $new_url = 'register.php';
             header('Location: '.$new_url);
         }
     ?>

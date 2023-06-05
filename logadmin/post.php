@@ -7,11 +7,11 @@ if( $connection == false)
 }
 $id = intval($_GET['id']);
 $result = (mysqli_query($connection,"SELECT * FROM `publicated` WHERE id=$id"));
-if(mysqli_num_rows($result)<1){
-    header('location:config.php');
-    exit;
+// if(mysqli_num_rows($result)<1){
+//     header('location:config.php');
+//     exit;
 
-}
+// }
 session_start();
 ?>
 
@@ -23,7 +23,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Form</title>
-    <form action="post.php">
+    <form action="post.php" method="post">
     <div class="header">
     <div class="main_page">
 <a href="config.php" class="main_page_a">Главная страница</a>
@@ -46,6 +46,28 @@ session_start();
                 <h3> <?php echo $post['Header']?> </h3>
                 <img src="<?php echo $post['Photo']; ?>" alt="" width="500px" height="500px" class="robo" name="img">
                 <p><?php echo $post['Full_info']?></p>
+                <br>
+                <br>
+                <p>
+                    <label>Комментарий:</label>
+                    <br />
+                    <input type="hidden" value="<?php echo $post['id']?>" name="post_id">
+                    <input type="hidden" value="<?php echo $user['id']?>" name="name_id">
+                    <textarea name="text_comment" cols="30" rows="5"></textarea>
+                </p>
+                <p>
+                    <?php
+                    if(isset($_POST['submit'])){
+                        $post_id = $_POST['post_id'];
+                        $name_id = $_POST['name_id'];
+                        $text_comment = $_POST["text_comment"];
+                        $sql = mysqli_query($connection, "INSERT INTO `comments` (`page_id`, `name_id`,`text_comment` ) VALUES ('$post_id', '$name_id', '$text_comment')");// Добавляем комментарий в таблицу
+                        header("Location: ".$_SERVER["HTTP_REFERER"]);// Делаем реридект обратно
+                    }
+                    ?>
+                    <br>
+                    <input type="submit" value="Отправить" name="submit" />
+                </p>
             </div>
         </div>
         <?php ?>
