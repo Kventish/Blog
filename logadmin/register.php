@@ -32,7 +32,7 @@ if(isset($_POST['regis']))
     }
     else{
                 
-    $connection = mysqli_connect("localhost", "root", "root", "blog");
+    $connection = mysqli_connect("localhost", "root", "", "blog");
     if( $connection == false)
     {
         echo'Не удалось подключиться к бд!<br>';
@@ -52,7 +52,7 @@ if(isset($_POST['regis']))
                         '$passwordhash',
                         '$name')");
                 
-                $new_url = 'http://logadmin/massege.php';
+                $new_url = 'massege.php';
                 header('Location: '.$new_url);
             }
             else{

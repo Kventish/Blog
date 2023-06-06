@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Июн 05 2023 г., 15:35
--- Версия сервера: 5.7.38
--- Версия PHP: 7.1.33
+-- Хост: 127.0.0.1
+-- Время создания: Июн 06 2023 г., 12:50
+-- Версия сервера: 10.4.27-MariaDB
+-- Версия PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `login` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Photo` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `login` varchar(256) DEFAULT NULL,
+  `password` varchar(256) DEFAULT NULL,
+  `Photo` varchar(256) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -54,8 +54,16 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `page_id` int(11) NOT NULL,
   `name_id` int(11) NOT NULL,
-  `text_comment` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
+  `text_comment` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `page_id`, `name_id`, `text_comment`) VALUES
+(1, 3, 5, 'test'),
+(2, 3, 5, 'test');
 
 -- --------------------------------------------------------
 
@@ -65,10 +73,10 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `publicated` (
   `id` int(11) NOT NULL,
-  `Header` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `short_information` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Photo` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Full_info` varchar(10000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Header` varchar(30) DEFAULT NULL,
+  `short_information` varchar(1000) DEFAULT NULL,
+  `Photo` varchar(300) DEFAULT NULL,
+  `Full_info` varchar(10000) DEFAULT NULL,
   `tima,date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -116,6 +124,12 @@ ALTER TABLE `publicated`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `publicated`

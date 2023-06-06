@@ -1,5 +1,5 @@
 <?php
-$connection = mysqli_connect("localhost", "root", "root", "blog");
+$connection = mysqli_connect("localhost", "root", "", "blog");
 if( $connection == false)
 {
     echo'Не удалось подключиться к бд!<br>';

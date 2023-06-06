@@ -1,5 +1,5 @@
 <?php 
-$connection = mysqli_connect("localhost", "root", "root", "blog");
+$connection = mysqli_connect("localhost", "root", "", "blog");
 if( $connection == false)
 {
     echo'Не удалось подключиться к бд!<br>';
@@ -19,7 +19,7 @@ session_start();
 </head>
 <body>
 <div class="header">
-        <a href="/config.php" class="back">Mane Page</a>
+        <a href="config.php" class="back">Mane Page</a>
     </div>
     <form action="change.php" method="post">
         <div class="container">
@@ -50,7 +50,7 @@ session_start();
 
                         $sql1 = mysqli_query($connection,"UPDATE `admin` SET Photo = '$photo', name = '$name',login = '$login' WHERE id = '$userid'");
                             
-                        $new_url = 'http://logadmin/profile.php';
+                        $new_url = 'profile.php';
                         header('Location: '.$new_url);
                     }
                     

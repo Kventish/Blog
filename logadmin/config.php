@@ -1,5 +1,5 @@
-<?
-$connection = mysqli_connect("localhost", "root", "root", "blog");
+<?php
+$connection = mysqli_connect("localhost", "root", "", "blog");
 if( $connection == false)
 {
     echo'Не удалось подключиться к бд!<br>';
@@ -26,12 +26,6 @@ session_start();
             <div class="main_page">
                 <a href="config.php" class="main_page_a">Главная страница</a>
                 <a href="create.php" class="create_publication">Создать публикацию</a>
-            </div>
-            <div class="search">
-                <form name="search" method="post" action="search.php">
-                    <input type="search" name="query" placeholder="Поиск">
-                    <button type="submit">Поиск статьи</button> 
-                </form>
             </div>
             <div class="login">
                 <?php 

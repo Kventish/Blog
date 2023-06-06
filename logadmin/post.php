@@ -1,5 +1,5 @@
-<?
-$connection = mysqli_connect("localhost", "root", "root", "blog");
+<?php
+$connection = mysqli_connect("localhost", "root", "", "blog");
 if( $connection == false)
 {
     echo'Не удалось подключиться к бд!<br>';
@@ -7,11 +7,13 @@ if( $connection == false)
 }
 $id = intval($_GET['id']);
 $result = (mysqli_query($connection,"SELECT * FROM `publicated` WHERE id=$id"));
-// if(mysqli_num_rows($result)<1){
-//     header('location:config.php');
-//     exit;
+$result3 = (mysqli_query($connection, "SELECT `c`.*, `a`.`name` FROM `comments` `c` left join `admin` `a` on `a`.`id` = `c`.`name_id` where `c`.page_id = $id"));
+$comment = (mysqli_fetch_all($result3, MYSQLI_ASSOC));
+if(mysqli_num_rows($result)<1){
+    header('location:config.php');
+    exit;
 
-// }
+}
 session_start();
 ?>
 
@@ -68,9 +70,22 @@ session_start();
                     <br>
                     <input type="submit" value="Отправить" name="submit" />
                 </p>
+                
+                <div>
+                    <br>
+                    <h1>Комментарии</h1>
+                    <br>
+                    <?php
+                    foreach($comment as $com):
+                    ?>
+                    <h2><?php echo $com['name']  ?? ""?></h2>
+                    <p><?php echo $com['text_comment']  ?? ""?></p>
+                    <br>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
-        <?php ?>
+
     </div>
 </form>
 </html>

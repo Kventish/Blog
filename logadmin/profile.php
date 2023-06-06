@@ -1,5 +1,5 @@
 <?php 
-$connection = mysqli_connect("localhost", "root", "root", "blog");
+$connection = mysqli_connect("localhost", "root", "", "blog");
 if( $connection == false)
 {
     echo'Не удалось подключиться к бд!<br>';
@@ -44,7 +44,7 @@ session_start();
                 <?php
                     if(isset($_GET['Change']))
                     {
-                        $new_url = 'http://logadmin/change.php';
+                        $new_url = 'change.php';
                         header('Location: '.$new_url);
                     }
                 ?>
