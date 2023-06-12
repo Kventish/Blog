@@ -14,7 +14,7 @@
     <button type="submit" name="Back">Back</button>
     <?php
         if(isset($_POST['Back'])){
-            $new_url = 'http://logadmin/';
+            $new_url = 'logadmin.php';
             header('Location: '.$new_url);
         }
     ?>
